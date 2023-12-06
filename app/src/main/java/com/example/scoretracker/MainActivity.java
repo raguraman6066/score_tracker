@@ -1,5 +1,6 @@
 package com.example.scoretracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -18,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         Button plusBtn = findViewById(R.id.plus_btn);
         Button minusBtn = findViewById(R.id.minus_btn);
         TextView result = findViewById(R.id.result);
-
+        if (savedInstanceState != null && savedInstanceState.containsKey("COUNT")) {
+            count = savedInstanceState.getInt("COUNT");
+            result.setText(String.valueOf(count));
+        }
         plusBtn.setOnClickListener(view -> {
             count++;
             result.setText(String.valueOf(count));
@@ -28,5 +32,11 @@ public class MainActivity extends AppCompatActivity {
             count--;
             result.setText(String.valueOf(count));
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("COUNT", count);
     }
 }
