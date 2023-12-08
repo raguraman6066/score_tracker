@@ -4,13 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     int count = 0;
-
+    TextView result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button plusBtn = findViewById(R.id.plus_btn);
         Button minusBtn = findViewById(R.id.minus_btn);
-        TextView result = findViewById(R.id.result);
+         result = findViewById(R.id.result);
         if (savedInstanceState != null && savedInstanceState.containsKey("COUNT")) {
             count = savedInstanceState.getInt("COUNT");
             result.setText(String.valueOf(count));
@@ -32,6 +34,30 @@ public class MainActivity extends AppCompatActivity {
             count--;
             result.setText(String.valueOf(count));
         });
+    }
+
+    //attach menu item to app bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.option_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+//make menu functionality work
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.reset:
+                count=0;
+                result.setText(String.valueOf(count));
+                break;
+            case R.id.setscore:
+                count=100;
+                result.setText(String.valueOf(count));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

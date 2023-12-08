@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/flutter projects/ScoreTracker/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/java android projects/ScoreTracker/app/src/main/res/drawable/ic_baseline_cancel_presentation_24.xml" value="0.166" />
+        <entry key="..\:/java android projects/ScoreTracker/app/src/main/res/drawable/ic_baseline_timer_10_24.xml" value="0.166" />
+        <entry key="..\:/java android projects/ScoreTracker/app/src/main/res/layout/activity_main.xml" value="0.278125" />
+        <entry key="..\:/java android projects/ScoreTracker/app/src/main/res/menu/option_menu.xml" value="0.23072916666666668" />
       </map>
     </option>
   </component>
